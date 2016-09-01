@@ -1,11 +1,10 @@
 class Greeter {
-    greeting: string;
-    constructor(message: string) {
-        this.greeting = message;
-    }
+    constructor(public greeting: string) { }
     greet() {
-        return "Hello, " + this.greeting;
+        return "<h1>" + this.greeting + "</h1>";
     }
-}
+};
 
-var greeter = new Greeter("Twitter");
+var greeter = new Greeter("Hello, world!");
+    
+document.body.innerHTML = greeter.greet();
