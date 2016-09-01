@@ -1,11 +1,13 @@
 var Greeter = (function () {
-    function Greeter(message) {
-        this.greeting = message;
+    function Greeter(greeting) {
+        this.greeting = greeting;
     }
     Greeter.prototype.greet = function () {
-        return "Hello, " + this.greeting;
+        return "<h1>" + this.greeting + "</h1>";
     };
     return Greeter;
 }());
-var greeter = new Greeter("Twitter");
+;
+var greeter = new Greeter("Hello, world!");
+document.body.innerHTML = greeter.greet();
 //# sourceMappingURL=main.js.map
