@@ -10,11 +10,13 @@ var Circle = (function () {
         if (color === void 0) { color = "red"; }
         if (lineWidth === void 0) { lineWidth = 2; }
         this.draw = function () {
+            context.save();
             context.beginPath();
             context.strokeStyle = _this.color;
             context.lineWidth = _this.lineWidth;
             context.arc(_this.x, _this.y, _this.radius, 0, 2 * Math.PI);
             context.stroke();
+            context.restore();
         };
         this.x = x;
         this.y = y;

@@ -17,11 +17,13 @@ class Circle {
         this.lineWidth = lineWidth; 
     } 
     public draw = (): void => {
+        context.save();
         context.beginPath();
         context.strokeStyle = this.color;
         context.lineWidth = this.lineWidth;
         context.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
         context.stroke();
+        context.restore();
     }
 }
 function randomNumber(min, max) {
@@ -32,6 +34,7 @@ function gameLoop(){
     requestAnimationFrame(gameLoop); //Calls the gameloop everytime the frame refreshes
     context.fillStyle = "black"; //Colours the canvas black
     context.fillRect(0, 0, 1280, 720); //The dimension of the canvas
+    
     circles.draw();
 }
 
