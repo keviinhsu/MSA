@@ -14,7 +14,7 @@ class Circle {
         this.color = color;
         this.lineWidth = lineWidth; 
     } 
-    public draw =(): void => {
+    public draw = (): void => {
         context.beginPath();
         context.strokeStyle = this.color;
         context.lineWidth = this.lineWidth;
@@ -45,5 +45,5 @@ window.onload = () => {
     context = canvas.getContext("2d");
     gameLoop();
     // Grabbing the element and putting it on the canvas
-    var circles: Circle = new Circle(500, 75, 25);
+    var circles: Circle = new Circle(25);
 }

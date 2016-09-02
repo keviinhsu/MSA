@@ -41,6 +41,6 @@ window.onload = function () {
     context = canvas.getContext("2d");
     gameLoop();
     // Grabbing the element and putting it on the canvas
-    var circles = new Circle(500, 75, 25);
+    var circles = new Circle(25);
 };
 //# sourceMappingURL=pongdemo.js.map
