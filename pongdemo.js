@@ -3,9 +3,10 @@ var context; //Object rendered in 2D
 var Circle = (function () {
     function Circle(x, y, radius, color, lineWidth) {
         var _this = this;
-        if (x === void 0) { x = 0; }
-        if (y === void 0) { y = 0; }
+        if (x === void 0) { x = randomNumber(10, 500); }
+        if (y === void 0) { y = randomNumber(10, 500); }
         if (radius === void 0) { radius = 10; }
+        if (color === void 0) { color = "red"; }
         if (lineWidth === void 0) { lineWidth = 2; }
         this.draw = function () {
             context.beginPath();
@@ -22,6 +23,9 @@ var Circle = (function () {
     }
     return Circle;
 }());
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min); //Generate a random number
+}
 function gameLoop() {
     requestAnimationFrame(gameLoop); //Calls the gameloop everytime the frame refreshes
     context.fillStyle = "black"; //Colours the canvas black
@@ -37,5 +41,6 @@ window.onload = function () {
     context = canvas.getContext("2d");
     gameLoop();
     // Grabbing the element and putting it on the canvas
+    var circles = new Circle(500, 75, 25);
 };
 //# sourceMappingURL=pongdemo.js.map

@@ -7,7 +7,7 @@ class Circle {
     public radius: number; 
     public lineWidth: number; 
     public color: string; 
-    constructor(x: number = 0, y: number = 0, radius: number = 10, color: string, lineWidth: number = 2) {
+    constructor(x: number = randomNumber(10,500), y: number = randomNumber(10,500), radius: number = 10, color: string = "red", lineWidth: number = 2) {
         this.x = x; 
         this.y = y;
         this.radius = radius; 
@@ -22,7 +22,9 @@ class Circle {
         context.stroke();
     }
 }
-
+function randomNumber(min, max) {
+    return Math.floor(Math.random()*(max-min + 1) + min) //Generate a random number
+}
 
 function gameLoop(){
     requestAnimationFrame(gameLoop); //Calls the gameloop everytime the frame refreshes
@@ -43,4 +45,5 @@ window.onload = () => {
     context = canvas.getContext("2d");
     gameLoop();
     // Grabbing the element and putting it on the canvas
+    var circles: Circle = new Circle(500, 75, 25);
 }
