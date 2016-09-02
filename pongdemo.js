@@ -1,5 +1,6 @@
 var canvas; //Bring up the canvas
 var context; //Object rendered in 2D
+var circles = new Circle(25);
 var Circle = (function () {
     function Circle(x, y, radius, color, lineWidth) {
         var _this = this;
@@ -30,6 +31,7 @@ function gameLoop() {
     requestAnimationFrame(gameLoop); //Calls the gameloop everytime the frame refreshes
     context.fillStyle = "black"; //Colours the canvas black
     context.fillRect(0, 0, 1280, 720); //The dimension of the canvas
+    circles.draw();
 }
 function mouseDown(event) {
     var x = event.x - canvas.offsetLeft;
@@ -41,6 +43,5 @@ window.onload = function () {
     context = canvas.getContext("2d");
     gameLoop();
     // Grabbing the element and putting it on the canvas
-    var circles = new Circle(25);
 };
 //# sourceMappingURL=pongdemo.js.map

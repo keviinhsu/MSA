@@ -1,6 +1,8 @@
 var canvas: HTMLCanvasElement; //Bring up the canvas
 var context: CanvasRenderingContext2D; //Object rendered in 2D
 
+var circles: Circle = new Circle(25);
+
 class Circle { 
     public x: number;
     public y: number;
@@ -30,6 +32,7 @@ function gameLoop(){
     requestAnimationFrame(gameLoop); //Calls the gameloop everytime the frame refreshes
     context.fillStyle = "black"; //Colours the canvas black
     context.fillRect(0, 0, 1280, 720); //The dimension of the canvas
+    circles.draw();
 }
 
 function mouseDown(event: MouseEvent): void {
@@ -45,5 +48,4 @@ window.onload = () => {
     context = canvas.getContext("2d");
     gameLoop();
     // Grabbing the element and putting it on the canvas
-    var circles: Circle = new Circle(25);
 }
