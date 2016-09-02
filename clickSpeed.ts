@@ -1,6 +1,6 @@
 var canvas: HTMLCanvasElement;
 var context: CanvasRenderingContext2D;
-var drawArray: Array<button> = new Array<button>(); 
+var drawArray: Array<drawObject> = new Array<drawObject>(); 
 
 function animationFrame(): void {
     requestAnimationFrame(animationFrame);
@@ -8,8 +8,8 @@ function animationFrame(): void {
     context.fillRect(0, 0, 1280, 720);
 
     for (var i: number = 0; i < drawArray.length, i++;) {
-        var d: button = drawArray[i];
-        d.drawButton();
+        var d: drawObject = drawArray[i];
+        d.draw();
     }
 }
 
@@ -20,7 +20,7 @@ function click(event: MouseEvent): void {
     alert('x =' + x + 'y = ' + y);
 }
 
-class button {
+class button implements drawObject{
     public x: number;
     public y: number; 
     public width: number;
@@ -41,7 +41,7 @@ class button {
         this.fontSize = fontSize; 
     }
 
-    public drawButton = (): void => {
+    public draw = (): void => {
         context.save();
         context.beginPath();
         context.textAlign = "center";
@@ -58,6 +58,12 @@ class button {
         context.stroke();
         context.restore();
     }
+}
+
+interface drawObject {
+    x: number;
+    y: number;
+    draw(); 
 }
 
 window.onload = () => {

@@ -7,7 +7,7 @@ function animationFrame() {
     context.fillRect(0, 0, 1280, 720);
     for (var i = 0; i < drawArray.length, i++;) {
         var d = drawArray[i];
-        d.drawButton();
+        d.draw();
     }
 }
 function click(event) {
@@ -19,7 +19,7 @@ var button = (function () {
     function button(x, y, width, height, text, fontSize) {
         var _this = this;
         if (fontSize === void 0) { fontSize = 32; }
-        this.drawButton = function () {
+        this.draw = function () {
             context.save();
             context.beginPath();
             context.textAlign = "center";
