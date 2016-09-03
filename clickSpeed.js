@@ -10,10 +10,6 @@ function animationFrame() {
         d.drawButton();
     }
 }
-function click(event) {
-    var x = event.x;
-    var y = event.y;
-}
 var button = (function () {
     function button(x, y, width, height, text, fontSize) {
         var _this = this;
