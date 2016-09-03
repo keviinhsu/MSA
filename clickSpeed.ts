@@ -46,7 +46,7 @@ class button implements drawObject{
         context.beginPath();
         context.textAlign = "center";
         context.textBaseline = "middle";
-        context.fillStyle = "white";
+        context.fillStyle = "red";
         context.font = this.fontSize + "px Verdana";
         context.fillText(this.text, this.x, this.y);
         context.restore();
