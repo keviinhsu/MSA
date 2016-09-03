@@ -9,7 +9,7 @@ function animationFrame(): void {
 
     for (var i: number = 0; i < drawArray.length, i++;) {
         var d: drawObject = drawArray[i];
-        d.draw();
+        d.drawButton();
     }
 }
 
@@ -41,7 +41,7 @@ class button implements drawObject{
         this.fontSize = fontSize; 
     }
 
-    public draw = (): void => {
+    public drawButton = (): void => {
         context.save();
         context.beginPath();
         context.textAlign = "center";
@@ -53,7 +53,7 @@ class button implements drawObject{
 
         context.save();
         context.lineWidth = 2;
-        context.strokeStyle = "black";
+        context.strokeStyle = "red";
         context.rect(this.x - this.halfWidth, this.y - this.halfWidth, this.width, this.height); 
         context.stroke();
         context.restore();
@@ -63,7 +63,7 @@ class button implements drawObject{
 interface drawObject {
     x: number;
     y: number;
-    draw(); 
+    drawButton(); 
 }
 
 window.onload = () => {
