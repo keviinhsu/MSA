@@ -53,7 +53,7 @@ class button implements drawObject{
             context.globalAlpha = 0.5;
             context.rect(this.x - this.halfWidth + 2, this.y - this.halfHeight + 2, this.width, this.height);
         } else {
-             context.rect(this.x - this.halfWidth, this.y - this.halfHeight, this.width, this.height);
+            context.rect(this.x - this.halfWidth, this.y - this.halfHeight, this.width, this.height);
         }
         context.fillText(this.text, this.x, this.y);
         context.restore();
