@@ -33,7 +33,7 @@ class button implements drawObject {
         this.halfHeight = height / 2;
         this.text = text;
         this.fontSize = fontSize; 
-        canvas.addEventListener("pressed", this.mouseDown, false);
+        canvas.addEventListener("mouseDown", this.mouseDown, false);
         canvas.addEventListener("mouseUp", this.mouseUp, false);
     }
 
@@ -44,7 +44,7 @@ class button implements drawObject {
         context.textBaseline = "middle";
         context.fillStyle = "red";
         context.font = this.fontSize + "px Verdana";
-        if(this.down == true) {
+        if (this.down == true) {
             context.globalAlpha = 0.5;
             context.rect(this.x - this.halfWidth + 2, this.y - this.halfHeight + 2, this.width, this.height);
         } else {

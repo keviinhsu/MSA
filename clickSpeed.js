@@ -58,7 +58,7 @@ var button = (function () {
         this.halfHeight = height / 2;
         this.text = text;
         this.fontSize = fontSize;
-        canvas.addEventListener("pressed", this.mouseDown, false);
+        canvas.addEventListener("mouseDown", this.mouseDown, false);
         canvas.addEventListener("mouseUp", this.mouseUp, false);
     }
     return button;
