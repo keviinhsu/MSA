@@ -19,6 +19,7 @@ function click(event: MouseEvent): void {
 }
 
 class button implements drawObject{
+    public down: boolean = false; 
     public x: number;
     public y: number; 
     public width: number;
@@ -37,6 +38,8 @@ class button implements drawObject{
         this.halfHeight = height / 2;
         this.text = text;
         this.fontSize = fontSize; 
+        canvas.addEventListener("pressed", this.pressed, false);
+        canvas.addEventListener("released", this.released, false);
     }
 
     public drawButton = (): void => {
@@ -46,6 +49,12 @@ class button implements drawObject{
         context.textBaseline = "middle";
         context.fillStyle = "red";
         context.font = this.fontSize + "px Verdana";
+        if(this.down == true) {
+            context.globalAlpha = 0.5;
+            context.rect(this.x - this.halfWidth + 2, this.y - this.halfHeight + 2, this.width, this.height);
+        } else {
+             context.rect(this.x - this.halfWidth, this.y - this.halfHeight, this.width, this.height);
+        }
         context.fillText(this.text, this.x, this.y);
         context.restore();
 
@@ -55,6 +64,20 @@ class button implements drawObject{
         context.rect(this.x - this.halfWidth, this.y - this.halfHeight, this.width, this.height); 
         context.stroke();
         context.restore();
+    }
+
+public pressed = (event: MouseEvent): void => {
+    var x: number = event.x
+    var y: number = event.y
+
+    if(x > this.x - this.halfWidth && y > this.y - this.halfHeight &&
+       x < this.x - this.halfWidth && y < this.y - this.halfHeight) {
+           this.down = true; 
+       }
+}
+
+public released = (event: MouseEvent): void => {
+    this.down = false; 
     }
 }
 
@@ -66,7 +89,6 @@ interface drawObject {
 
 window.onload = () => {
     canvas = <HTMLCanvasElement>document.getElementById('canvas');
-    canvas.addEventListener("click", click, false);
     drawArray.push(new button(150, 100, 200, 50, "Click Me!"));
     context = canvas.getContext("2d");
     animationFrame();

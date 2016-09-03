@@ -18,6 +18,7 @@ var button = (function () {
     function button(x, y, width, height, text, fontSize) {
         var _this = this;
         if (fontSize === void 0) { fontSize = 32; }
+        this.down = false;
         this.drawButton = function () {
             context.save();
             context.beginPath();
@@ -25,6 +26,13 @@ var button = (function () {
             context.textBaseline = "middle";
             context.fillStyle = "red";
             context.font = _this.fontSize + "px Verdana";
+            if (_this.down == true) {
+                context.globalAlpha = 0.5;
+                context.rect(_this.x - _this.halfWidth + 2, _this.y - _this.halfHeight + 2, _this.width, _this.height);
+            }
+            else {
+                context.rect(_this.x - _this.halfWidth, _this.y - _this.halfHeight, _this.width, _this.height);
+            }
             context.fillText(_this.text, _this.x, _this.y);
             context.restore();
             context.save();
@@ -34,6 +42,17 @@ var button = (function () {
             context.stroke();
             context.restore();
         };
+        this.pressed = function (event) {
+            var x = event.x;
+            var y = event.y;
+            if (x > _this.x - _this.halfWidth && y > _this.y - _this.halfHeight &&
+                x < _this.x - _this.halfWidth && y < _this.y - _this.halfHeight) {
+                _this.down = true;
+            }
+        };
+        this.released = function (event) {
+            _this.down = false;
+        };
         this.x = x;
         this.y = y;
         this.width = width;
@@ -42,12 +61,13 @@ var button = (function () {
         this.halfHeight = height / 2;
         this.text = text;
         this.fontSize = fontSize;
+        canvas.addEventListener("pressed", this.pressed, false);
+        canvas.addEventListener("released", this.released, false);
     }
     return button;
 }());
 window.onload = function () {
     canvas = document.getElementById('canvas');
-    canvas.addEventListener("click", click, false);
     drawArray.push(new button(150, 100, 200, 50, "Click Me!"));
     context = canvas.getContext("2d");
     animationFrame();
