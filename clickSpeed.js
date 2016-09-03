@@ -1,4 +1,3 @@
-var _this = this;
 var canvas;
 var context;
 var drawArray = new Array();
@@ -67,8 +66,6 @@ var button = (function () {
 window.onload = function () {
     canvas = document.getElementById('canvas');
     drawArray.push(new button(150, 100, 200, 50, "Click Me!"));
-    canvas.addEventListener("mouseDown", _this.mouseDown, false);
-    canvas.addEventListener("mouseUp", _this.mouseUp, false);
     context = canvas.getContext("2d");
     animationFrame();
 };

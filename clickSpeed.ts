@@ -86,8 +86,6 @@ interface drawObject {
 window.onload = () => {
     canvas = <HTMLCanvasElement>document.getElementById('canvas');
     drawArray.push(new button(150, 100, 200, 50, "Click Me!"));
-    canvas.addEventListener("mouseDown", this.mouseDown, false);
-    canvas.addEventListener("mouseUp", this.mouseUp, false);
     context = canvas.getContext("2d");
     animationFrame();
 }
