@@ -65,10 +65,10 @@ public mouseDown = (event: MouseEvent): void => {
     var x: number = event.x
     var y: number = event.y
 
-    if(x > this.x - this.halfWidth && y > this.y - this.halfHeight &&
-       x < this.x - this.halfWidth && y < this.y - this.halfHeight) {
-           this.down = true; 
-           alert('x =' + x + 'y =' + y);
+    if (x > this.x - this.halfWidth && y > this.y - this.halfHeight &&
+        x < this.x - this.halfWidth && y < this.y - this.halfHeight) {
+            this.down = true; 
+            alert('x =' + x + 'y =' + y);
        }
 }
 
@@ -86,6 +86,8 @@ interface drawObject {
 window.onload = () => {
     canvas = <HTMLCanvasElement>document.getElementById('canvas');
     drawArray.push(new button(150, 100, 200, 50, "Click Me!"));
+    canvas.addEventListener("mouseDown", this.mouseDown, false);
+    canvas.addEventListener("mouseUp", this.mouseUp, false);
     context = canvas.getContext("2d");
     animationFrame();
 }
