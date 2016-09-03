@@ -68,6 +68,6 @@ window.onload = () => {
     canvas = <HTMLCanvasElement>document.getElementById('canvas');
     canvas.addEventListener("click", click, false);
     context = canvas.getContext("2d");
-    drawArray.push(new button(150, 100, 200, 50, "Click Me!"))
+    drawArray.push(new button(150, 100, 200, 50, "Click Me!"));
     animationFrame();
 }
