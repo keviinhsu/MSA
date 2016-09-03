@@ -61,7 +61,7 @@ class button implements drawObject {
         context.restore();
     }
 
-public pressed (event: MouseEvent): void {
+public pressed = (event: MouseEvent): void => {
     var x: number = event.x
     var y: number = event.y
 
@@ -72,7 +72,7 @@ public pressed (event: MouseEvent): void {
        }
 }
 
-public released (event: MouseEvent): void {
+public released = (event: MouseEvent): void => {
     this.down = false; 
     }
 }

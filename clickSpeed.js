@@ -38,6 +38,18 @@ var button = (function () {
             context.stroke();
             context.restore();
         };
+        this.pressed = function (event) {
+            var x = event.x;
+            var y = event.y;
+            if (x > _this.x - _this.halfWidth && y > _this.y - _this.halfHeight &&
+                x < _this.x - _this.halfWidth && y < _this.y - _this.halfHeight) {
+                _this.down = true;
+                alert('x =' + x + 'y =' + y);
+            }
+        };
+        this.released = function (event) {
+            _this.down = false;
+        };
         this.x = x;
         this.y = y;
         this.width = width;
@@ -49,18 +61,6 @@ var button = (function () {
         canvas.addEventListener("pressed", this.pressed, false);
         canvas.addEventListener("released", this.released, false);
     }
-    button.prototype.pressed = function (event) {
-        var x = event.x;
-        var y = event.y;
-        if (x > this.x - this.halfWidth && y > this.y - this.halfHeight &&
-            x < this.x - this.halfWidth && y < this.y - this.halfHeight) {
-            this.down = true;
-            alert('x =' + x + 'y =' + y);
-        }
-    };
-    button.prototype.released = function (event) {
-        this.down = false;
-    };
     return button;
 }());
 window.onload = function () {
