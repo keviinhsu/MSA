@@ -30,7 +30,7 @@ var button = (function () {
             context.save();
             context.lineWidth = 2;
             context.strokeStyle = "red";
-            context.rect(_this.x - _this.halfWidth, _this.y - _this.halfWidth, _this.width, _this.height);
+            context.rect(_this.x - _this.halfWidth, _this.y - _this.halfHeight, _this.width, _this.height);
             context.stroke();
             context.restore();
         };

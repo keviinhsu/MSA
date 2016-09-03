@@ -52,7 +52,7 @@ class button implements drawObject{
         context.save();
         context.lineWidth = 2;
         context.strokeStyle = "red";
-        context.rect(this.x - this.halfWidth, this.y - this.halfWidth, this.width, this.height); 
+        context.rect(this.x - this.halfWidth, this.y - this.halfHeight, this.width, this.height); 
         context.stroke();
         context.restore();
     }
