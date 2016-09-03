@@ -7,30 +7,29 @@ function animationFrame() {
     context.fillRect(0, 0, 1280, 720);
     for (var i = 0; i < drawArray.length, i++;) {
         var d = drawArray[i];
-        d.draw();
+        d.drawButton();
     }
 }
 function click(event) {
     var x = event.x;
     var y = event.y;
-    alert('x =' + x + 'y = ' + y);
 }
 var button = (function () {
     function button(x, y, width, height, text, fontSize) {
         var _this = this;
         if (fontSize === void 0) { fontSize = 32; }
-        this.draw = function () {
+        this.drawButton = function () {
             context.save();
             context.beginPath();
             context.textAlign = "center";
             context.textBaseline = "middle";
-            context.fillStyle = "white";
+            context.fillStyle = "red";
             context.font = _this.fontSize + "px Verdana";
             context.fillText(_this.text, _this.x, _this.y);
             context.restore();
             context.save();
             context.lineWidth = 2;
-            context.strokeStyle = "black";
+            context.strokeStyle = "red";
             context.rect(_this.x - _this.halfWidth, _this.y - _this.halfWidth, _this.width, _this.height);
             context.stroke();
             context.restore();
