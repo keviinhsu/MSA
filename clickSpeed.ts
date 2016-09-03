@@ -33,8 +33,8 @@ class button implements drawObject {
         this.halfHeight = height / 2;
         this.text = text;
         this.fontSize = fontSize; 
-        canvas.addEventListener("pressed", this.pressed, false);
-        canvas.addEventListener("released", this.released, false);
+        canvas.addEventListener("pressed", this.mouseDown, false);
+        canvas.addEventListener("mouseUp", this.mouseUp, false);
     }
 
     public drawButton = (): void => {
@@ -61,7 +61,7 @@ class button implements drawObject {
         context.restore();
     }
 
-public pressed = (event: MouseEvent): void => {
+public mouseDown = (event: MouseEvent): void => {
     var x: number = event.x
     var y: number = event.y
 
@@ -72,7 +72,7 @@ public pressed = (event: MouseEvent): void => {
        }
 }
 
-public released = (event: MouseEvent): void => {
+public mouseUp = (event: MouseEvent): void => {
     this.down = false; 
     }
 }

@@ -38,7 +38,7 @@ var button = (function () {
             context.stroke();
             context.restore();
         };
-        this.pressed = function (event) {
+        this.mouseDown = function (event) {
             var x = event.x;
             var y = event.y;
             if (x > _this.x - _this.halfWidth && y > _this.y - _this.halfHeight &&
@@ -47,7 +47,7 @@ var button = (function () {
                 alert('x =' + x + 'y =' + y);
             }
         };
-        this.released = function (event) {
+        this.mouseUp = function (event) {
             _this.down = false;
         };
         this.x = x;
@@ -58,8 +58,8 @@ var button = (function () {
         this.halfHeight = height / 2;
         this.text = text;
         this.fontSize = fontSize;
-        canvas.addEventListener("pressed", this.pressed, false);
-        canvas.addEventListener("released", this.released, false);
+        canvas.addEventListener("pressed", this.mouseDown, false);
+        canvas.addEventListener("mouseUp", this.mouseUp, false);
     }
     return button;
 }());
