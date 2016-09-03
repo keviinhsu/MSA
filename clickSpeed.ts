@@ -18,7 +18,7 @@ function click(event: MouseEvent): void {
     var y: number = event.y;
 }
 
-class button implements drawObject{
+class button implements drawObject {
     public down: boolean = false; 
     public x: number;
     public y: number; 
@@ -73,6 +73,7 @@ public pressed = (event: MouseEvent): void => {
     if(x > this.x - this.halfWidth && y > this.y - this.halfHeight &&
        x < this.x - this.halfWidth && y < this.y - this.halfHeight) {
            this.down = true; 
+           alert('x =' + x + 'y =' + y);
        }
 }
 

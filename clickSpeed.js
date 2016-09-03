@@ -48,6 +48,7 @@ var button = (function () {
             if (x > _this.x - _this.halfWidth && y > _this.y - _this.halfHeight &&
                 x < _this.x - _this.halfWidth && y < _this.y - _this.halfHeight) {
                 _this.down = true;
+                alert('x =' + x + 'y =' + y);
             }
         };
         this.released = function (event) {
