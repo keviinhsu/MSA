@@ -48,8 +48,8 @@ var button = (function () {
 window.onload = function () {
     canvas = document.getElementById('canvas');
     canvas.addEventListener("click", click, false);
-    context = canvas.getContext("2d");
     drawArray.push(new button(150, 100, 200, 50, "Click Me!"));
+    context = canvas.getContext("2d");
     animationFrame();
 };
 //# sourceMappingURL=clickSpeed.js.map
