@@ -4,7 +4,7 @@ var drawArray = new Array();
 function animationFrame() {
     requestAnimationFrame(animationFrame);
     context.fillStyle = "black";
-    context.fillRect(0, 0, 1280, 720);
+    context.fillRect(0, 0, 680, 480);
     for (var i = 0; i < drawArray.length; i++) {
         var d = drawArray[i];
         d.drawButton();

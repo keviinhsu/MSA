@@ -5,7 +5,7 @@ var drawArray: Array<drawObject> = new Array<drawObject>();
 function animationFrame(): void {
     requestAnimationFrame(animationFrame);
     context.fillStyle = "black";
-    context.fillRect(0, 0, 1280, 720);
+    context.fillRect(0, 0, 680, 480);
 
     for (var i: number = 0; i < drawArray.length; i++) {
         var d: drawObject = drawArray[i];
