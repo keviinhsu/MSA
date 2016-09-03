@@ -7,7 +7,7 @@ function animationFrame(): void {
     context.fillStyle = "black";
     context.fillRect(0, 0, 1280, 720);
 
-    for (var i: number = 0; i < drawArray.length, i++;) {
+    for (var i: number = 0; i < drawArray.length; i++) {
         var d: drawObject = drawArray[i];
         d.drawButton();
     }
