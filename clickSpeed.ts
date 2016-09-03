@@ -16,8 +16,6 @@ function animationFrame(): void {
 function click(event: MouseEvent): void {
     var x: number = event.x;
     var y: number = event.y;
-
-    alert('x =' + x + 'y = ' + y);
 }
 
 class button implements drawObject{
