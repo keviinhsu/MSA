@@ -103,7 +103,7 @@ class SnakeGame {
 
     draw() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.context.fillStyle = "#000000";
+        this.context.fillStyle = "white";
 
         var p = this.snakeHead;
 

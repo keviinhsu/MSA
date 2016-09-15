@@ -71,7 +71,7 @@ var SnakeGame = (function () {
     };
     SnakeGame.prototype.draw = function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.context.fillStyle = "#000000";
+        this.context.fillStyle = "white";
         var p = this.snakeHead;
         while (p != null) {
             this.context.fillRect(p.x, p.y, p.width - 1, p.height - 1);
