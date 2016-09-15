@@ -50,7 +50,7 @@ var SnakeGame = (function () {
         }
         this.draw();
     };
-    SnakeGame.prototype.snakeOutsideBounds = function () {
+    SnakeGame.prototype.snakeOutOfBounds = function () {
         return (this.snakeHead.x < 0 ||
             this.snakeHead.y < 0 ||
             this.snakeHead.x + this.snakeHead.width > this.canvas.width ||
@@ -67,7 +67,7 @@ var SnakeGame = (function () {
         return false;
     };
     SnakeGame.prototype.gameOver = function () {
-        return this.snakeOutsideBounds() || this.snakeTouchingItself();
+        return this.snakeOutOfBounds() || this.snakeTouchingItself();
     };
     SnakeGame.prototype.draw = function () {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -183,7 +183,7 @@ function keyboardListener(e) {
 var game;
 window.onload = function () {
     document.onkeydown = keyboardListener;
-    var el = document.getElementById('game-canvas');
+    var el = document.getElementById('gameCanvas');
     game = new SnakeGame(el);
     game.start();
 };

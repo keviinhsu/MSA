@@ -77,7 +77,7 @@ class SnakeGame {
         this.draw();
     }
 
-    snakeOutsideBounds(): boolean {
+    snakeOutOfBounds(): boolean {
         return  (this.snakeHead.x < 0 ||
                 this.snakeHead.y < 0 ||
                 this.snakeHead.x + this.snakeHead.width > this.canvas.width ||
@@ -98,7 +98,7 @@ class SnakeGame {
     }
 
     gameOver(): boolean {
-        return this.snakeOutsideBounds() || this.snakeTouchingItself();
+        return this.snakeOutOfBounds() || this.snakeTouchingItself();
     }
 
     draw() {
@@ -239,7 +239,7 @@ var game: SnakeGame;
 window.onload = () => {
     document.onkeydown = keyboardListener;
 
-    var el = <HTMLCanvasElement> document.getElementById('game-canvas');
+    var el = <HTMLCanvasElement> document.getElementById('gameCanvas');
     game = new SnakeGame(el);
     game.start();
 };
