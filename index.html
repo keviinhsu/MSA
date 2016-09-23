@@ -1,28 +1,38 @@
-<!DOCTYPE html>
+<!doctype>
+<html>
+<head>
+    <base href="/">
+    <title>Angular 2 Boilerplate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Load libraries -->
+    <!-- IE required polyfills, in this exact order -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.js"></script>
 
-<html lang="en">
-<header>
-    <meta charset="utf-8" />
-    <title>Simple Snake Game</title>
-    <link rel="stylesheet" href="app.css" type="text/css"/>
-    <script src="snake.js"></script>
-</header>
+
+    <link rel="stylesheet" href="src/css/app.css">
+</head>
 <body>
-   <div class="gameContainer">
-        <canvas id="gameCanvas"></canvas>
-        <h1><font color="black">Simple Snake Game</font></h1></p>
-        <p><font color="black"><b>W</b> (Up) <b>A</b> (Left) <b>S</b> (Down) <b>D</b> (Right)</font></p>
-    </div>
+<my-app>Loading...</my-app>
 
-    <div id="fb-root"></div>  
-    <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-
-<div class="fb-share-button" data-href="http://microsoftmoduletwo.azurewebsites.net/" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fmicrosoftmoduletwo.azurewebsites.net%2F&amp;src=sdkpreparse">Share</a></div>
+<script>
+    System.config({
+        packages: {
+            app: {
+                format: 'register',
+                defaultExtension: 'js'
+            }
+        }
+    });
+    System.import('app/boot')
+            .then(null, console.error.bind(console));
+</script>
 </body>
 </html>
