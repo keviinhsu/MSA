@@ -1,4 +1,4 @@
-System.register(["angular2/core", "./weather-item.component"], function(exports_1, context_1) {
+System.register(["angular2/core", "./weather-item.component", "./weather.service"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "./weather-item.component"], function(exports_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, weather_item_component_1;
+    var core_1, weather_item_component_1, weather_service_1;
     var WeatherListComponent;
     return {
         setters:[
@@ -19,18 +19,25 @@ System.register(["angular2/core", "./weather-item.component"], function(exports_
             },
             function (weather_item_component_1_1) {
                 weather_item_component_1 = weather_item_component_1_1;
+            },
+            function (weather_service_1_1) {
+                weather_service_1 = weather_service_1_1;
             }],
         execute: function() {
             WeatherListComponent = (function () {
-                function WeatherListComponent() {
+                function WeatherListComponent(_weatherService) {
+                    this._weatherService = _weatherService;
                 }
+                WeatherListComponent.prototype.ngOnInit = function () {
+                    this.weatherItems = this._weatherService.getWeatherItems();
+                };
                 WeatherListComponent = __decorate([
                     core_1.Component({
                         selector: 'weather-list',
-                        template: "\n        <section class = \"weather-list\">\n            <weather-item></weather-item>\n        </section>\n    ",
+                        template: "\n        <section class=\"weather-list\">\n            <weather-item *ngFor = \"#weatherItem of weatherItems\" [item] = \"weatherItem\"></weather-item>\n        </section>\n    ",
                         directives: [weather_item_component_1.WeatherItemComponent]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [weather_service_1.WeatherService])
                 ], WeatherListComponent);
                 return WeatherListComponent;
             }());
@@ -39,4 +46,4 @@ System.register(["angular2/core", "./weather-item.component"], function(exports_
     }
 });
 
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYXRoZXIvd2VhdGhlci1saXN0LmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztZQVlBO2dCQUFBO2dCQUVBLENBQUM7Z0JBWkQ7b0JBQUMsZ0JBQVMsQ0FBQzt3QkFDUCxRQUFRLEVBQUUsY0FBYzt3QkFDeEIsUUFBUSxFQUFFLG1IQUlUO3dCQUNELFVBQVUsRUFBRSxDQUFDLDZDQUFvQixDQUFDO3FCQUNyQyxDQUFDOzt3Q0FBQTtnQkFJRiwyQkFBQztZQUFELENBRkEsQUFFQyxJQUFBO1lBRkQsdURBRUMsQ0FBQSIsImZpbGUiOiJ3ZWF0aGVyL3dlYXRoZXItbGlzdC5jb21wb25lbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0NvbXBvbmVudH0gZnJvbSBcImFuZ3VsYXIyL2NvcmVcIjtcbmltcG9ydCB7V2VhdGhlckl0ZW1Db21wb25lbnR9IGZyb20gXCIuL3dlYXRoZXItaXRlbS5jb21wb25lbnRcIjtcbkBDb21wb25lbnQoe1xuICAgIHNlbGVjdG9yOiAnd2VhdGhlci1saXN0JyxcbiAgICB0ZW1wbGF0ZTogYFxuICAgICAgICA8c2VjdGlvbiBjbGFzcyA9IFwid2VhdGhlci1saXN0XCI+XG4gICAgICAgICAgICA8d2VhdGhlci1pdGVtPjwvd2VhdGhlci1pdGVtPlxuICAgICAgICA8L3NlY3Rpb24+XG4gICAgYCxcbiAgICBkaXJlY3RpdmVzOiBbV2VhdGhlckl0ZW1Db21wb25lbnRdXG59KVxuXG5leHBvcnQgY2xhc3MgV2VhdGhlckxpc3RDb21wb25lbnQgeyBcblxufSJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYXRoZXIvd2VhdGhlci1saXN0LmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztZQWNBO2dCQUdJLDhCQUFvQixlQUErQjtvQkFBL0Isb0JBQWUsR0FBZixlQUFlLENBQWdCO2dCQUFHLENBQUM7Z0JBRXZELHVDQUFRLEdBQVI7b0JBQ0ksSUFBSSxDQUFDLFlBQVksR0FBRyxJQUFJLENBQUMsZUFBZSxDQUFDLGVBQWUsRUFBRSxDQUFDO2dCQUMvRCxDQUFDO2dCQWhCTDtvQkFBQyxnQkFBUyxDQUFDO3dCQUNQLFFBQVEsRUFBRSxjQUFjO3dCQUN4QixRQUFRLEVBQUUsb0xBSVQ7d0JBQ0QsVUFBVSxFQUFFLENBQUMsNkNBQW9CLENBQUM7cUJBQ3JDLENBQUM7O3dDQUFBO2dCQVNGLDJCQUFDO1lBQUQsQ0FSQSxBQVFDLElBQUE7WUFSRCx1REFRQyxDQUFBIiwiZmlsZSI6IndlYXRoZXIvd2VhdGhlci1saXN0LmNvbXBvbmVudC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7Q29tcG9uZW50LCBPbkluaXR9IGZyb20gXCJhbmd1bGFyMi9jb3JlXCI7XG5pbXBvcnQge1dlYXRoZXJJdGVtQ29tcG9uZW50fSBmcm9tIFwiLi93ZWF0aGVyLWl0ZW0uY29tcG9uZW50XCI7XG5pbXBvcnQge1dlYXRoZXJJdGVtfSBmcm9tIFwiLi93ZWF0aGVyLWl0ZW1cIjtcbmltcG9ydCB7V2VhdGhlclNlcnZpY2V9IGZyb20gXCIuL3dlYXRoZXIuc2VydmljZVwiO1xuXG5AQ29tcG9uZW50KHtcbiAgICBzZWxlY3RvcjogJ3dlYXRoZXItbGlzdCcsXG4gICAgdGVtcGxhdGU6IGBcbiAgICAgICAgPHNlY3Rpb24gY2xhc3M9XCJ3ZWF0aGVyLWxpc3RcIj5cbiAgICAgICAgICAgIDx3ZWF0aGVyLWl0ZW0gKm5nRm9yID0gXCIjd2VhdGhlckl0ZW0gb2Ygd2VhdGhlckl0ZW1zXCIgW2l0ZW1dID0gXCJ3ZWF0aGVySXRlbVwiPjwvd2VhdGhlci1pdGVtPlxuICAgICAgICA8L3NlY3Rpb24+XG4gICAgYCxcbiAgICBkaXJlY3RpdmVzOiBbV2VhdGhlckl0ZW1Db21wb25lbnRdXG59KVxuZXhwb3J0IGNsYXNzIFdlYXRoZXJMaXN0Q29tcG9uZW50IGltcGxlbWVudHMgT25Jbml0IHtcbiAgICB3ZWF0aGVySXRlbXM6IFdlYXRoZXJJdGVtW107XG5cbiAgICBjb25zdHJ1Y3Rvcihwcml2YXRlIF93ZWF0aGVyU2VydmljZTogV2VhdGhlclNlcnZpY2UpIHt9XG5cbiAgICBuZ09uSW5pdCgpOiBhbnkge1xuICAgICAgICB0aGlzLndlYXRoZXJJdGVtcyA9IHRoaXMuX3dlYXRoZXJTZXJ2aWNlLmdldFdlYXRoZXJJdGVtcygpO1xuICAgIH1cbn0iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=

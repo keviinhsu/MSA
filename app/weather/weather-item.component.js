@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['angular2/core', "./weather-item"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,21 +10,29 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
+    var core_1, weather_item_1;
     var WeatherItemComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (weather_item_1_1) {
+                weather_item_1 = weather_item_1_1;
             }],
         execute: function() {
             WeatherItemComponent = (function () {
                 function WeatherItemComponent() {
                 }
+                __decorate([
+                    core_1.Input('item'), 
+                    __metadata('design:type', weather_item_1.WeatherItem)
+                ], WeatherItemComponent.prototype, "weatherItem", void 0);
                 WeatherItemComponent = __decorate([
                     core_1.Component({
                         selector: 'weather-item',
-                        template: "\n        <article>\n            <div class = \"col-1\">\n                <h3>CityName</h3>\n                <p class = \"info\">CLOUDS</p>\n            </div>\n            <div class = \"col-2\">\n                <span class = \"temperature\">32C</span>\n            </div>\n        </article>\n    "
+                        template: "\n        <article class=\"weather-element\">\n            <div class=\"col-1\">\n                <h3>{{ weatherItem.cityName }}</h3>\n                <p class = \"info\">{{ weatherItem.description }}</p>\n            </div>\n            <div class=\"col-2\">\n                <span class=\"temperature\">{{ weatherItem.temperature }}\u00B0C</span>\n            </div>\n        </article>\n    ",
+                        styleUrls: ['src/css/weather-item.css'],
                     }), 
                     __metadata('design:paramtypes', [])
                 ], WeatherItemComponent);
@@ -35,4 +43,4 @@ System.register(['angular2/core'], function(exports_1, context_1) {
     }
 });
 
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYXRoZXIvd2VhdGhlci1pdGVtLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7OztZQWdCQTtnQkFBQTtnQkFFQSxDQUFDO2dCQWhCRDtvQkFBQyxnQkFBUyxDQUFDO3dCQUNQLFFBQVEsRUFBRSxjQUFjO3dCQUN4QixRQUFRLEVBQUUsOFNBVVQ7cUJBQ0osQ0FBQzs7d0NBQUE7Z0JBR0YsMkJBQUM7WUFBRCxDQUZBLEFBRUMsSUFBQTtZQUZELHVEQUVDLENBQUEiLCJmaWxlIjoid2VhdGhlci93ZWF0aGVyLWl0ZW0uY29tcG9uZW50LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHtDb21wb25lbnR9IGZyb20gJ2FuZ3VsYXIyL2NvcmUnO1xuXG5AQ29tcG9uZW50KHtcbiAgICBzZWxlY3RvcjogJ3dlYXRoZXItaXRlbScsXG4gICAgdGVtcGxhdGU6IGBcbiAgICAgICAgPGFydGljbGU+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzID0gXCJjb2wtMVwiPlxuICAgICAgICAgICAgICAgIDxoMz5DaXR5TmFtZTwvaDM+XG4gICAgICAgICAgICAgICAgPHAgY2xhc3MgPSBcImluZm9cIj5DTE9VRFM8L3A+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3MgPSBcImNvbC0yXCI+XG4gICAgICAgICAgICAgICAgPHNwYW4gY2xhc3MgPSBcInRlbXBlcmF0dXJlXCI+MzJDPC9zcGFuPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvYXJ0aWNsZT5cbiAgICBgXG59KVxuZXhwb3J0IGNsYXNzIFdlYXRoZXJJdGVtQ29tcG9uZW50IHsgXG5cbn0iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYXRoZXIvd2VhdGhlci1pdGVtLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztZQW1CQTtnQkFBQTtnQkFFQSxDQUFDO2dCQURHO29CQUFDLFlBQUssQ0FBQyxNQUFNLENBQUM7O3lFQUFBO2dCQWpCbEI7b0JBQUMsZ0JBQVMsQ0FBQzt3QkFDUCxRQUFRLEVBQUUsY0FBYzt3QkFDeEIsUUFBUSxFQUFFLDRZQVVUO3dCQUNELFNBQVMsRUFBRSxDQUFDLDBCQUEwQixDQUFDO3FCQUUxQyxDQUFDOzt3Q0FBQTtnQkFHRiwyQkFBQztZQUFELENBRkEsQUFFQyxJQUFBO1lBRkQsdURBRUMsQ0FBQSIsImZpbGUiOiJ3ZWF0aGVyL3dlYXRoZXItaXRlbS5jb21wb25lbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0NvbXBvbmVudCwgSW5wdXR9IGZyb20gJ2FuZ3VsYXIyL2NvcmUnO1xuaW1wb3J0IHtXZWF0aGVySXRlbX0gZnJvbSBcIi4vd2VhdGhlci1pdGVtXCJcblxuQENvbXBvbmVudCh7XG4gICAgc2VsZWN0b3I6ICd3ZWF0aGVyLWl0ZW0nLFxuICAgIHRlbXBsYXRlOiBgXG4gICAgICAgIDxhcnRpY2xlIGNsYXNzPVwid2VhdGhlci1lbGVtZW50XCI+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzPVwiY29sLTFcIj5cbiAgICAgICAgICAgICAgICA8aDM+e3sgd2VhdGhlckl0ZW0uY2l0eU5hbWUgfX08L2gzPlxuICAgICAgICAgICAgICAgIDxwIGNsYXNzID0gXCJpbmZvXCI+e3sgd2VhdGhlckl0ZW0uZGVzY3JpcHRpb24gfX08L3A+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3M9XCJjb2wtMlwiPlxuICAgICAgICAgICAgICAgIDxzcGFuIGNsYXNzPVwidGVtcGVyYXR1cmVcIj57eyB3ZWF0aGVySXRlbS50ZW1wZXJhdHVyZSB9fcKwQzwvc3Bhbj5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2FydGljbGU+XG4gICAgYCxcbiAgICBzdHlsZVVybHM6IFsnc3JjL2Nzcy93ZWF0aGVyLWl0ZW0uY3NzJ10sXG4gICAgLy8gaW5wdXRzOiBbJ3dlYXRoZXJJdGVtOiBpdGVtJ11cbn0pXG5leHBvcnQgY2xhc3MgV2VhdGhlckl0ZW1Db21wb25lbnQge1xuICAgIEBJbnB1dCgnaXRlbScpIHdlYXRoZXJJdGVtOiBXZWF0aGVySXRlbTsgXG59Il0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9
